@@ -11,6 +11,7 @@ pip-selfcheck.json
 src/PortfolioBlog/settings/settings_local.py
 __pycache__/
 migrations/
+static_cdn/
 # src/<yourproject>/settings/local.py
 # static-cdn/  # any collected static files
 
