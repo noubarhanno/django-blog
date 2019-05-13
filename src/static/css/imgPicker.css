@@ -1,0 +1,109 @@
+.file-upload {
+  background-color: #f7f5f5;
+  width: 100%;
+  margin: 10px auto;
+}
+
+.file-upload-content {
+  position: relative;
+  cursor: pointer;
+  display: none;
+  text-align: center;
+  box-shadow: 2px 2px 10px gray;
+  border-radius: .25em;
+}
+
+.file-upload-input {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.image-upload-wrap {
+  margin-top: 20px;
+  border: 2px dashed rgb(10, 86, 185);
+  position: relative;
+}
+
+.fa-cloud-upload-alt {
+  font-size: 2em;
+}
+
+.image-dropping, .image-upload-wrap:hover {
+  background-color: rgb(10, 86, 185);
+  border: 2px dashed white;
+  box-shadow: 2px 2px 10px gray;
+}
+
+.image-upload-wrap:hover p {
+  color: white;
+}
+
+.image-title-wrap {
+  padding: 0 15px 15px 15px;
+  color: #222;
+}
+
+.drag-text {
+  text-align: center;
+}
+
+.drag-text p {
+  font-weight: 50;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  color: rgb(10, 86, 185);
+  padding: 40px 0;
+}
+
+.file-upload-image {
+  max-height: 150px;
+  max-width: 150px;
+  margin: 10px auto;
+  border-radius: 0.25em;
+  box-shadow: 2px 2px 10px gray;
+}
+
+.image-title-wrap{
+  font-size: 18px;
+  color:rgb(255, 0, 0);
+  font-weight: 500;
+}
+
+.post__form--remove{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+}
+
+/* .remove-image {
+    width: 100%;
+    margin: 0;
+    color: rgb(245, 0, 0);
+    border: 2px solid rgb(245, 0, 0);
+    padding: 5px;
+    border-radius: 4px;
+    transition: all .4s ease;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+  
+  .remove-image:hover {
+    background: rgb(245, 0, 0);
+    color: #ffffff;
+    transition: all .2s ease;
+    cursor: pointer;
+  }
+  
+  .remove-image:active {
+    border: 0;
+    transition: all .4s ease;
+  } */

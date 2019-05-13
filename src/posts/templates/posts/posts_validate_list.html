@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class='post__container--header'>
+        <h1>Posts for Validation</h1>
+        <hr>
+    </div>
+    <div class="row">
+        {% for article in object_list %}
+        <div class="example-1 card-posts col-lg-4 col-sm-6 col-xm-12">
+            {% if article.image %}
+            <div class="wrapper" style="background-image: url('{{ article.image.url }}')">
+                {% else %}
+                <div class="wrapper">
+                    {% endif %}
+                    <div class="date">
+                        <span class="month">{{ article.created|date:"D, d M, Y" }}</span>
+                    </div>
+                    <div class="data">
+                        <div class="content">
+                            <a href="{{ article.get_posts }}"><p class="author badge badge-primary post__list--span"><span>{{ article.user }}</span></p></a>
+                            <h5 class="title">{{ article.title|truncatechars:20 }}</h5>
+                            <hr>
+                            <p class='text'><a href="{{ article.get_absolute_url }}" class="btn btn-info post__list--btndetail">Read more</a>
+                            </p>
+                        </div>
+                        <ul class="menu-content">
+                            <li>
+                                <a href="{% url 'posts:post_approve' id=article.id %}" class="fas fa-check-double"></a>
+                            </li>
+                            <li>
+                                <a href="{% url 'posts:post_hide' id=article.id %}" class="fas fa-trash-alt"></a>
+                            </li>
+                            <li>
+                                <a href="#"></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p>No articles yet</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

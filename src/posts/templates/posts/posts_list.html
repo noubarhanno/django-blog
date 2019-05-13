@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class='post__container--header'>
+        <h1>Latest Articles</h1>
+        <hr>
+        <a href="{% url 'posts:create' %}" class='post__list--addbtn'><i class="far fa-plus-square"></i> New Article</a>
+    </div>
+    <div class="row">
+        {% for article in object_list %}
+        <div class="example-1 card-posts col-lg-4 col-sm-6 col-xm-12">
+            {% if article.image %}
+            <div class="wrapper" style="background-image: url('{{ article.image.url }}')">
+                {% else %}
+                <div class="wrapper">
+                    {% endif %}
+                    <div class="date">
+                        <span class="month">{{ article.created|date:"D, d M, Y" }}</span>
+                    </div>
+                    <div class="data">
+                        <div class="content">
+                            <a href="{{ article.get_posts }}"><p class="author badge badge-primary post__list--span"><span>{{ article.user }}</span></p></a>
+                            <h5 class="title">{{ article.title|truncatechars:20 }}</h5>
+                            <hr>
+                            <p class='text'><a href="{{ article.get_absolute_url }}" class="btn btn-info post__list--btndetail">Read more</a>
+                            </p>
+                        </div>
+                        <ul class="menu-content">
+                            <li>
+                                <a href="#" class="fa fa-bookmark-o"></a>
+                            </li>
+                            <li>
+                                {% if article.get_likes.count > 0%}
+                                <a href="#" class="fas fa-thumbs-up post-like" data-identity={{article.slug}}>
+                                    {% else %}
+                                    <a href="#" class="far fa-thumbs-up post-like" data-identity={{article.slug}}>
+                                        {% endif %}
+                                        <span class='likes-count'>{{article.get_likes.count}}</span>
+                                    </a>
+                            </li>
+                            <li><a href="#"
+                                    class="fa fa-comment-o"><span>{{ article.approved_comments.count }}</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p>No articles yet</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

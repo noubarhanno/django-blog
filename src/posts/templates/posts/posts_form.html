@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block extra-head %}
+{{ form.media }}
+{% endblock extra-head %}
+{% block content %}
+<div class="lds-hourglass post-form-spiner"></div>
+<form method="post" enctype='multipart/form-data' class='post-form' style='display:none'>{% csrf_token %}
+    <div class="file-upload">
+        <div class="image-upload-wrap">
+            <input class='file-upload-input' type='file' name='image' onchange="readURL(this);" accept="image/*"
+                id='id_image'>
+            <div class="drag-text">
+                <p><i class="fas fa-cloud-upload-alt"></i> Drag and drop or select image</p>
+            </div>
+        </div>
+        <div class="file-upload-content">
+            <div class="image-title-wrap">
+                <div class='post__form--remove'>
+                    <i class="fas fa-trash-alt" style='display: none'></i><span style='display: none' class="image-title"> Uploaded Image</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <label for='title'>Title</label>
+    {{ form.title}}
+    <label for='content'>Post</label>
+    {{form.content}}
+    <input class='btn btn-primary mt-2 mr-2' type="submit" name='draft' value="Save">
+    <input class='btn btn-primary mt-2' type="submit" name='post' value="Post">
+</form>
+{% endblock %}

@@ -1,0 +1,140 @@
+h1,h2,h3,h4,h5,p {
+    font-family: 'Assistant', sans-serif;
+}
+
+body{
+    background-color:rgb(228, 228, 228)
+}
+
+.navbar-toggler-icon{
+    background-image: url('/src/static/media/img/Toggle.svg');
+}
+.navbar-toggler{
+    color:white;
+}
+
+.comment {
+    margin: 20px 0px 20px 20px;
+}
+
+.comment-reply{
+    display:none
+}
+
+.comment-update{
+    display: none
+}
+
+.comment-div{
+    border-left: 2px solid rgb(255, 104, 142);
+    margin-left: 10px;
+    background-color: rgb(235, 235, 235);
+    font-size: 1.1em;
+}
+
+.child-comment-div{
+    border-left: 2px solid rgb(154, 154, 245);
+    margin-left: 25px;
+    background-color: rgb(247, 241, 241);
+    font-size: 0.8em
+}
+.comment-content{
+    margin-left: 5px;
+}
+
+.comment-post{
+    background-color: rgb(241, 235, 243);
+    border-bottom: 3px solid red;
+    margin-bottom: 3%;
+}
+
+.login__container--alignment{
+    margin: 10% 25% 25% 25%
+}
+
+.post__content--size{
+    max-width: 200px;
+}
+
+.img-responsive{
+    width:100%;
+    height:auto;
+    border:2px solid rgb(0, 110, 255);
+}
+
+.post__container{
+    margin:7% 10%;
+    background-color:white;
+    padding:2%;
+}
+
+.post__container p{
+    font-size:1.1em;
+}
+
+.post__content{
+    border-top:2px solid rgb(10, 86, 185);
+    border-bottom:2px solid rgb(10, 86, 185);
+    border-right:15px solid rgb(10, 86, 185);
+    border-left:15px solid rgb(10, 86, 185);
+    padding:14px 5px;
+}
+
+.post__author--span{
+    color:rgb(10, 86, 185);
+}
+
+.nav__background{
+    background-color:rgb(10, 86, 185);
+}
+
+.nav-link{
+    color:white;
+}
+
+.navbar-brand{
+    color:white;
+}
+
+.navbar-brand:hover, .navbar-brand:active ,.nav-link:hover{
+    color:rgb(214, 213, 213);
+}
+
+.btn-outline-primary{
+    border:1px solid white;
+    color:white;
+    background-color:rgb(10, 86, 185);
+}
+
+.btn-outline-primary:hover{
+    background-color:white;
+    color:rgb(10, 86, 185);
+}
+
+.post__list--btndetail{
+    background-color: white;
+    border: 1px solid rgb(10, 86, 185);
+    color: rgb(10, 86, 185);
+}
+
+.post__list--btndetail:hover{
+    background-color:rgb(10, 86, 185);
+    border: 1px solid white;
+    color:white;
+}
+
+.post__list--span{
+    background-color:rgb(10, 86, 185);
+}
+
+.login__btn--group{
+    display: flex;
+    justify-content: space-between
+}
+
+.login__btn--register{
+    margin-top: 10px;
+    display: flex;
+    align-items: flex-end;
+    font-size: 0.7em;
+}

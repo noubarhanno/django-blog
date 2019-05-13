@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'base/messages.html' %}
+<h1>Update</h1>
+<form method='POST'>{% csrf_token %}
+    {{ form.as_p }}
+    <input type='submit' value='Update' class='btn btn-primary' />
+    <a href='{{ returnUrl }}' class='btn btn-danger'>Cancel</a>
+</form>
+{% endblock %}

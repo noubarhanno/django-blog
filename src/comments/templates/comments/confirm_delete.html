@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include "base/messages.html" %}
+<h1 style='color:red'>Delete Confirmation</h1>
+<form method="POST">{% csrf_token %}
+    <p>are you sure you want to delete the comment: {{ object.content }}</p>
+    <input type='submit' value='Confirm' class='btn btn-primary' />
+    <a href='{% if not object.parent %}{{ object.get_absolute_url }}{% else %}{{ object.parent.get_absolute_url }}{% endif %}' class='btn btn-danger'>Cancel</a>
+</form>
+{% endblock %}

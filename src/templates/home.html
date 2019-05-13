@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{title}}</h1>
+<p>{{content}}</p>
+<h3>{{premium}}</h3>
+{% if hasPower %}
+    <a href='{% url "posts:validate_list" %}' class='btn btn-primary'>Validate Posts</a>
+{% endif %}
+{% endblock %}

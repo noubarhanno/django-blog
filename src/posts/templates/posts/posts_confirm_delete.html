@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include "base/messages.html" %}
+    <form method="post">{% csrf_token %}
+            {% if not object.slug %}
+                <a href='{{object}}' class='btn btn-primary'>Back</a>
+            {% else %}
+                 <p>Are you sure you want to delete "{{ object }}"?</p>
+                <input type="submit" value="Confirm">
+            {% endif %}
+    </form>
+{% endblock %}

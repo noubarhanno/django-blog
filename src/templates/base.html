@@ -1,0 +1,95 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Document</title>
+    {% block extra-head %}
+    {% endblock extra-head%}
+    {% include 'base/css.html' %}
+</head>
+<body>
+    {% include 'base/navbar.html' %}
+    <div class='container'>
+        {% block content %}
+        {% endblock %}
+    </div>
+    
+    {% include 'base/js.html' %}
+    
+    {% block javascript %}
+    {% endblock %}
+    <script>
+            $(document).ready(function(){
+                $(".content-markdown").each(function(){
+                var content = $(this).text()
+                var markedContent = marked(content)
+                $(this).html(markedContent)
+                })
+                $(".post-detail-item img").each(function(){
+                        $(this).addClass("img-responsive");
+                })
+                $(".comment-reply-btn").click(function(event){
+                    event.preventDefault();
+                    $(this).parent().next('.comment-reply').fadeToggle();
+                })
+
+                
+                // ComponentItem Preload and Spiner
+                function preLoaderPostForm(show, componentItem, Spinner) {
+                    if (show == false) {
+                        componentItem.css({ "display": "none" })
+                        Spinner.css({ "display": "block" })
+                    }
+                    else {
+                        componentItem.css({"display":"block"})
+                        Spinner.css({ "display": "none" })
+                    }
+
+                }
+
+                // Post Form
+                postCreateForm = $('.post-form')
+                postFormSpiner = $('.post-form-spiner')
+
+                
+                setTimeout(() => {
+                    preLoaderPostForm(true, postCreateForm, postFormSpiner)
+                }, 2000);
+
+
+
+
+
+
+                // ComponentItem Preload and Spiner for Post List
+                function preLoaderPostList(show, componentItem, Spinner) {
+                    if (show == false) {
+                        // componentItem.css({ "display": "none", "padding":"40px 80px","flex-wrap":"wrap","justify-content":"center" })
+                        componentItem.css({"display":"none"})
+                        Spinner.css({ "display": "block" })
+                    }
+                    else {
+                        // componentItem.css({ "display": "flex","padding":"40px 80px","flex-wrap":"wrap","justify-content":"center" })
+                        componentItem.css({"display":"flex"})
+                        Spinner.css({ "display": "none" })
+                    }
+
+                }
+
+                //Post List 
+                postList = $('.post-list')
+                postListSpiner = $('.post-list-spiner')
+                setTimeout(() => {
+                    preLoaderPostList(true, postList, postListSpiner)
+                }, 2000);
+                
+            })
+    
+
+    </script>
+</body>
+</html>

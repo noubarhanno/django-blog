@@ -1,0 +1,34 @@
+.comment {
+    margin: 20px 0px 20px 20px;
+}
+
+.comment-reply{
+    display:none
+}
+
+.comment-update{
+    display: none
+}
+
+.comment-div{
+    border-left: 2px solid rgb(255, 104, 142);
+    margin-left: 10px;
+    background-color: rgb(235, 235, 235);
+    font-size: 1.1em;
+}
+
+.child-comment-div{
+    border-left: 2px solid rgb(154, 154, 245);
+    margin-left: 25px;
+    background-color: rgb(247, 241, 241);
+    font-size: 0.8em
+}
+.comment-content{
+    margin-left: 5px;
+}
+
+.comment-post{
+    background-color: rgb(241, 235, 243);
+    border-bottom: 3px solid red;
+    margin-bottom: 3%;
+}

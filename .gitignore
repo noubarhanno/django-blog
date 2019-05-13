@@ -1,0 +1,17 @@
+.vscode
+.DS_STORE
+fasttracktojquery/
+
+# Virtualenv related
+bin/
+include/
+pip-selfcheck.json
+
+# Django related
+src/PortfolioBlog/settings/settings_local.py
+__pycache__/
+migrations/
+# src/<yourproject>/settings/local.py
+# static-cdn/  # any collected static files
+
+

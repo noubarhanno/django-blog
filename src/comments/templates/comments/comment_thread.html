@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load markdown_deux_tags %}
+{% block content %}
+{% include "base/messages.html" %}
+<div class='container'>
+    <div class='comment-post'>
+        <h1>{{ post.title }}</h1>
+        <p>posted by : {{ post.user }} | posted since {{ post.created|timesince }} ago</p>
+    </div>
+    <h4>Comments:</h4>
+    <hr>
+    <blockquote class='comment-div'>
+        <div class='comment-content'>
+            <p>{{ comment.content }}</p>
+            <footer>{{ comment.author }} | posted since {{ comment.created_date|timesince }} ago | {% if request.user == comment.author %}<a href='{{ comment.get_delete_url }}'>Delete</a> | <a href='{{ comment.get_update_url }}'>Update</a> {% endif %}</footer>
+        </div>
+    </blockquote>
+    {% for child_comment in comment.children %}
+        <hr>
+        <blockquote class='child-comment-div'>
+            <div class='comment-content'>
+                <p>{{ child_comment.content }}</p>
+                <footer>via {{ child_comment.author }} | {{ child_comment.created_date|timesince }} ago |{% if request.user == comment.author %}<a href='{{ child_comment.get_delete_url }}'>Delete</a> | <a href='{{ child_comment.get_update_url }}'>Update</a> {% endif %}</footer>
+            </div>
+        </blockquote>
+    {% endfor %}
+    {% if not user.is_authenticated%}
+        <p>User must login to comment</p>
+    {% elif not comment.is_child %}
+        <form method="POST"> {% csrf_token %}
+            {{form.as_p}}
+            <input type='submit' value='Reply' name='Reply' class='btn btn-primary'>
+        </form>
+    {% endif %}
+</div>
+{% endblock %}

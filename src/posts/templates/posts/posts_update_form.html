@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block extra-head %}
+{{ form.media }}
+{% endblock extra-head %}
+{% block content %}
+<p class="post-form-spiner"><i class= 'fa fa-spin fa-spinner'></i> wait  ...</p>
+<form method="post" enctype='multipart/form-data' class='post-form' style='display:none'>{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Save">
+</form>
+{% endblock %}
